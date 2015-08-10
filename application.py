@@ -35,8 +35,8 @@ from jinja2 import Environment, FileSystemLoader
 define("port", default = 80, help = "run on the given port", type = int)
 define("mysql_host", default = "mysql_host", help = "community database host")
 define("mysql_database", default = "mysql_db_name", help = "community database name")
-define("mysql_user", default = "mysql_db_user", help = "community database user")
-define("mysql_password", default = "mysql_db_password", help = "community database password")
+define("mysql_user", default = "root", help = "community database user")
+define("mysql_password", default = "123456", help = "community database password")
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -83,7 +83,7 @@ class Application(tornado.web.Application):
             (r"/(.*)", handler.topic.ProfileHandler),
         ]
 
-        tornado.web.Application.__init__(self, handlers, **settings)
+        tornado.web.Application.__init__(self, handlers, **settings)   # init时需要传两个参数：handlers和settings
 
         # Have one global connection to the blog DB across all handlers
         self.db = torndb.Connection(
