@@ -19,7 +19,7 @@ import pprint
 import math
 import datetime
 
-from base import *
+from base import BaseHandler
 from lib.variables import *
 from form.topic import *
 from lib.variables import gen_random

@@ -32,7 +32,7 @@ from lib.loader import Loader
 from lib.session import Session, SessionManager
 from jinja2 import Environment, FileSystemLoader
 
-define("port", default = 80, help = "run on the given port", type = int)
+define("port", default = 80, help = "run on the given port", type = int)    # 这种方式在之后可以通过 'host = options.mysql_host' 的形式来使用
 define("mysql_host", default = "mysql_host", help = "community database host")
 define("mysql_database", default = "mysql_db_name", help = "community database name")
 define("mysql_user", default = "root", help = "community database user")
