@@ -31,7 +31,7 @@ class IndexHandler(BaseHandler):
         user_info = self.current_user
         page = int(self.get_argument("p", "1"))
         template_variables["user_info"] = user_info
-        if(user_info):
+        if(user_info):                                              # 像这种情况不适合用authenticated装饰器，因为没有登录情况下也有内容要显示，而auth装饰器不允许这种分支情况
             template_variables["user_info"]["counter"] = {
                 "topics": self.topic_model.get_user_all_topics_count(user_info["uid"]),
                 "replies": self.reply_model.get_user_all_replies_count(user_info["uid"]),
