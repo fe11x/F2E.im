@@ -11,7 +11,7 @@ import time
 import helper
 
 class BaseHandler(tornado.web.RequestHandler):
-    def __init__(self, *argc, **argkw):
+    def __init__(self, *argc, **argkw):             # 如果子类未定义自己的构造方法函数，会沿着搜索树找到父类的构造方法函数去执行父类里的构造方法函数
         super(BaseHandler, self).__init__(*argc, **argkw)
         self.session = lib.session.Session(self.application.session_manager, self)
         self.jinja2 = self.settings.get("jinja2")
